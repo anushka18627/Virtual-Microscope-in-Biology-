@@ -1,0 +1,173 @@
+/* Animated gradient background */
+/* Global styles */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #a8edea, #fed6e3);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: #333;
+}
+
+/* Gradient Animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Container with glass effect */
+.container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 30px auto;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: transform 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+}
+
+/* Title Styling */
+h1 {
+  margin-bottom: 15px;
+  font-size: 30px;
+  color: #222;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Upload section */
+.upload-section {
+  margin-bottom: 20px;
+}
+
+input[type="file"] {
+  padding: 6px;
+  border: 2px dashed #888;
+  border-radius: 8px;
+  background: #f9f9f9;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+input[type="file"]:hover {
+  border-color: #007bff;
+  background: #eef6ff;
+}
+
+/* Microscope View */
+.microscope-view {
+  width: 500px;
+  height: 400px;
+  margin: 20px auto;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  position: relative;
+  cursor: grab;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease;
+}
+
+.microscope-view:hover {
+  transform: scale(1.03);
+}
+
+.microscope-view:active {
+  cursor: grabbing;
+}
+
+.microscope-view img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: center center;
+  user-select: none;
+  pointer-events: none;
+  transition: transform 0.2s ease;
+}
+
+/* Control Buttons */
+.controls {
+  margin-top: 15px;
+}
+
+.controls button {
+  padding: 10px 18px;
+  margin: 5px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.controls button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.controls button:hover::before {
+  left: 100%;
+}
+
+.controls button:hover {
+  background: linear-gradient(45deg, #2575fc, #6a11cb);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.controls button:active {
+  transform: scale(0.95);
+}
+
+/* Zoom Level Badge */
+#zoomLevel {
+  display: inline-block;
+  margin-left: 15px;
+  padding: 5px 15px;
+  background: #ff4081;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 20px;
+  box-shadow: 0 3px 6px rgba(255, 64, 129, 0.4);
+  animation: pulse 1.5s infinite;
+}
+
+/* Zoom Badge Pulse Animation */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .microscope-view {
+    width: 100%;
+    height: 300px;
+  }
+  .controls button {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+}

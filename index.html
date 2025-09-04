@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Microscope</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🔬 Virtual Microscope in Biology</h1>
+
+    <div class="upload-section">
+      <label for="uploadImage">Upload Your Sample:</label>
+      <input type="file" id="uploadImage" accept="image/*">
+    </div>
+
+    <div class="microscope-view" id="microscopeView">
+  <img id="sampleImage" alt="Sample under Microscope">
+</div>
+
+
+    <div class="controls">
+  <button id="zoomIn">Zoom In 🔍</button>
+  <button id="zoomOut">Zoom Out 🔎</button>
+  <button id="reset">Reset ↩️</button>
+  <button id="snapshot">📸 Snapshot</button>
+  <span id="zoomLevel">Zoom: 100%</span>
+</div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
